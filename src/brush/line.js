@@ -14,22 +14,22 @@ module.exports = (_ctx, opts) => {
       ctx.strokeStyle = config.strokeStyle;
       ctx.lineWidth = config.lineWidth;
       for (let i = 0; i < lines.length; i += 1) {
-        for (let j = 1; j < lines[i].length; j++) {
-          const points = lines[i];
-          this.drawLine(
-            points[j - 1].x,
-            points[j - 1].y,
-            points[j].x,
-            points[j].y
-          );
+        const points = lines[i];
+        ctx.beginPath();
+        for (let j = 0; j < lines[i].length; j++) {
+          if (j === 0) {
+            ctx.moveTo(points[j].x, points[j].y);
+          } else {
+            ctx.lineTo(points[j].x, points[j].y);
+          }
         }
+        ctx.stroke();
       }
     },
     drawLine(fromX, fromY, x, y) {
       ctx.beginPath();
       ctx.moveTo(fromX, fromY);
       ctx.lineTo(x, y);
-      ctx.stroke();
     },
   };
 };

@@ -16,7 +16,7 @@ window.onload = () => {
   sketch(s => {
     const background = lineBrush(s.context, {
       strokeStyle: "#5a0004",
-      lineWidth: 20,
+      lineWidth: 40,
     });
     const mousePainter = mouse(background.draw.bind(background), s.canvas);
 
