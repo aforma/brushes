@@ -15,8 +15,9 @@ const settings = {
 window.onload = () => {
   sketch(s => {
     const background = multipleLineBrush(s.context, {
-      strokeStyle: "#5a0004",
       lineWidth: 10,
+      linesNumber: 10,
+      lineOffset: 15,
     });
     
     const mousePainter = mouse(background.draw.bind(background), s.canvas);

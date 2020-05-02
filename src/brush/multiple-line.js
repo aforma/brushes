@@ -34,7 +34,9 @@ module.exports = (_ctx, opts) => {
         }
       }
       for (let lineNumber = 0; lineNumber < config.linesNumber; lineNumber++) {
+        ctx.beginPath();
         this.drawLines(offsetLines[lineNumber]);
+        ctx.stroke();
       }
     },
     drawLines(lines) {
@@ -42,7 +44,6 @@ module.exports = (_ctx, opts) => {
       ctx.lineWidth = config.lineWidth;
       for (let i = 0; i < lines.length; i += 1) {
         const points = lines[i];
-        ctx.beginPath();
         for (let j = 0; j < points.length; j++) {
           if (j === 0) {
             ctx.moveTo(points[j].x, points[j].y);
@@ -50,7 +51,6 @@ module.exports = (_ctx, opts) => {
             ctx.lineTo(points[j].x, points[j].y);
           }
         }
-        ctx.stroke();
       }
     }
   };
