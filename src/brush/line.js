@@ -26,10 +26,5 @@ module.exports = (_ctx, opts) => {
         ctx.stroke();
       }
     },
-    drawLine(fromX, fromY, x, y) {
-      ctx.beginPath();
-      ctx.moveTo(fromX, fromY);
-      ctx.lineTo(x, y);
-    },
   };
 };
