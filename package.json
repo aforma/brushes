@@ -13,7 +13,8 @@
   "dependencies": {
     "@doublepi/calc": "^1.0.1",
     "canvas-sketch": "^0.7.3",
-    "canvas-sketch-cli": "^1.11.7"
+    "canvas-sketch-cli": "^1.11.7",
+    "simplify-js": "^1.2.4"
   },
   "devDependencies": {}
 }

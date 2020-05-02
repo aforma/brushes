@@ -1,3 +1,5 @@
+const simplify = require("simplify-js");
+
 module.exports = (_ctx, opts) => {
   const ctx = _ctx;
   let options = {};
@@ -31,6 +33,11 @@ module.exports = (_ctx, opts) => {
             x: point.x + i * config.lineOffset,
             y: point.y + i * config.lineOffset,
           });
+          offsetLines[i][offsetLines[0].length - 1] = simplify(
+            offsetLines[i][offsetLines[0].length - 1],
+            1,
+            true
+          );
         }
       }
       for (let lineNumber = 0; lineNumber < config.linesNumber; lineNumber++) {

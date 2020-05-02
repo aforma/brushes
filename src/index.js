@@ -2,6 +2,7 @@ const sketch = require("canvas-sketch");
 const lineBrush = require("./brush/line");
 const multipleLineBrush = require("./brush/multiple-line");
 const mouse = require("./painter/mouse");
+const pinball = require("./painter/pinball");
 
 const settings = {
   dimensions: "a4",
@@ -21,11 +22,18 @@ window.onload = () => {
     });
     
     const mousePainter = mouse(background.draw.bind(background), s.canvas);
+    const pinballPainter = pinball(
+      background.draw.bind(background),
+      s.canvas.width,
+      s.canvas.height,
+      settings.duration,
+    );
 
     return {
       resize(params) {},
       render(params) {
         mousePainter.draw();
+        pinballPainter.draw()
       },
       unload() {}
     };
